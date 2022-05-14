@@ -2,7 +2,7 @@
 
 namespace models;
 
-class estudiantes_db{
+class Estudiante{
     protected $id;
     protected $codigo;
     protected $nombres;
