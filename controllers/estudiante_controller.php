@@ -77,7 +77,11 @@ class EstudianteController implements IController
 
     public function delete($id)
     {
-
+        $sql = "delete from estudiantes where id=" .$id;
+        $conexionDB = new ConexionDB();
+        $resultQuery = $conexionDB->getResultQuery($sql);
+        $conexionDB->close();
+        return $resultQuery;
     }
 }
 
