@@ -63,7 +63,16 @@ class EstudianteController implements IController
 
     public function update($id, $estudianteModel)
     {
-
+        $sql = "update estudiantes set";
+        $sql .= " codigo='" . $estudianteModel->get('codigo') . "',";
+        $sql .= " nombres='" . $estudianteModel->get('nombres') . "',";
+        $sql .= " apellidos='" . $estudianteModel->get('apellidos') . "',";
+        $sql .= " edad=" . $estudianteModel->get('edad');
+        $sql .= " where id=" .$id;
+        $conexionDB = new ConexionDB();
+        $resultQuery = $conexionDB->getResultQuery($sql);
+        $conexionDB->close();
+        return $resultQuery;
     }
 
     public function delete($id)
