@@ -7,7 +7,8 @@ use models\Estudiante;
 
 class EstudianteController implements IController
 {
-    public function list(){
+    public function list()
+    {
         $sql = "select * from estudiantes";
         $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
@@ -47,8 +48,9 @@ class EstudianteController implements IController
         return $estudiante;
     }
 
-    public function create($estudianteModel){
-        
+    public function create($estudianteModel)
+    {
+
     }
 
     public function update($id, $estudianteModel)
