@@ -50,7 +50,15 @@ class EstudianteController implements IController
 
     public function create($estudianteModel)
     {
-
+        $sql = "insert into estudiantes (codigo, nombres, apellidos, edad)";
+        $sql .= " values ('" . $estudianteModel->get('codigo') . "',
+        '" . $estudianteModel->get('nombres') . "',
+        '" . $estudianteModel->get('apellidos') . "',
+        '" . $estudianteModel->get('edad') . " )";
+        $conexionDB = new ConexionDB();
+        $resultQuery = $conexionDB->getResultQuery($sql);
+        $conexionDB->close();
+        return $resultQuery;
     }
 
     public function update($id, $estudianteModel)
